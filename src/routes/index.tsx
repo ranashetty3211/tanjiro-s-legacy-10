@@ -1,29 +1,56 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
+import { Story } from "@/components/Story";
+import { Breathing } from "@/components/Breathing";
+import { Gallery } from "@/components/Gallery";
+import { Quotes } from "@/components/Quotes";
+import { Battles } from "@/components/Battles";
+import { Footer } from "@/components/Footer";
+import { CustomCursor } from "@/components/CustomCursor";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Tanjiro Kamado — Demon Slayer Tribute" },
+      {
+        name: "description",
+        content:
+          "A cinematic tribute to Tanjiro Kamado: his story, Water Breathing forms, gallery, quotes, and the battles that led him to dawn.",
+      },
+      { property: "og:title", content: "Tanjiro Kamado — Demon Slayer Tribute" },
+      {
+        property: "og:description",
+        content: "Cinematic dark Japanese tribute site. Story, breathing forms, gallery, quotes, battles.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+    ],
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap",
+      },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="relative">
+      <CustomCursor />
+      <Navbar />
+      <Hero />
+      <Story />
+      <Breathing />
+      <Gallery />
+      <Quotes />
+      <Battles />
+      <Footer />
+    </main>
   );
 }
